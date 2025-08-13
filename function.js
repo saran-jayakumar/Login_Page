@@ -27,7 +27,19 @@ function validateInputs() {
         setError(password, "Password cannot be blank");
     } else if (passwordValue.length < 8) {
         setError(password, "Password must be at least 8 characters");
-    } else {
+    } 
+    else if(!/[0-9]/.test(passwordValue)){
+        setError(password, "Password must contain at least one number");
+    }
+    else if(!/[a-z]/.test(passwordValue)){
+        setError(password,"Must contain at least one lowercase letter")
+    }
+    else if(!/[!@#$%^&*(),.?":{}|<>]/.test(password)){
+        setError(password,"Must contain at least one special character")}
+        else if(!/[0-9]/.test(password)){
+            setError(password,"Must contain at least one uppercase letter")
+        }
+    else{
         setSucess(password);
     }
     if (checkPasswordValue === "") {
